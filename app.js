@@ -436,6 +436,35 @@ app.shortcut('createevent', async ({ ack, payload, context }) => {
   }
 });
 
+app.view('createeventmodal', ({ ack, body, view, context }) => {
+  // Acknowledge the view_submission event
+  ack();
+
+	try {
+ 	
+		const result = await app.client.conversations.create({
+			token:context.botToken,
+			name:"event-iah-thunderstorm-10-14-21"
+		});
+
+  	} 
+	catch (error) {
+		console.error(error):
+	}
+	
+	
+/*  // Do whatever you want with the input data - here we're saving it to a DB then sending the user a verifcation of their submission
+
+  // Assume there's an input block with `test_input` as the block_id and `dreamy_input` as the action_id
+  const val = view['state']['values']['test_input']['dreamy_input'];
+  const user = body['user']['id'];
+  
+  // You'll probably want to store these values somewhere
+  console.log(val);
+  console.log(user); */
+
+});
+
 //BOILERPLATE BELOW HERE
 
 //look up any one document from a query string
