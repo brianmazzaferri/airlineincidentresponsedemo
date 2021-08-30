@@ -446,6 +446,13 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 			token:context.botToken,
 			name:"event-iah-thunderstorm-10-14-21"
 		});
+		
+		console.log(result);
+		
+		const result2 = await app.client.conversations.invite({
+			token:context.botToken,
+			name:"event-iah-thunderstorm-10-14-21"
+		});
 
   	} 
 	catch (error) {
