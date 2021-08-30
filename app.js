@@ -449,7 +449,7 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 
   	} 
 	catch (error) {
-		console.error(error):
+		console.error(error);
 	}
 	
 	
