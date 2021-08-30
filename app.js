@@ -427,7 +427,8 @@ app.shortcut('createevent', async ({ ack, payload, context }) => {
 			}
 		}
 	]
-});
+}
+    });
     console.log(result);
   }
   catch (error) {
