@@ -10,7 +10,7 @@ const app = new App({
   clientId: process.env.SLACK_CLIENT_ID,
   clientSecret: process.env.SLACK_CLIENT_SECRET,
   stateSecret: 'my-state-secret',
-  scopes: ['channels:join','channels:manage','channels:read','chat:write','chat:write.public','groups:write','links:write'], //add scopes here
+  scopes: ['channels:join','channels:manage','channels:read','chat:write','chat:write.public','groups:write','links:write','commands'], //add scopes here
   installationStore: {
     storeInstallation: (installation) => {
       console.log("INSTALLATION:");
