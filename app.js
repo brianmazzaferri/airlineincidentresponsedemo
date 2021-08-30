@@ -33,7 +33,7 @@ const app = new App({
 
 //LISTENERS GO HERE
 
-app.command('/helloworld', async ({ ack, payload, context }) => {
+app.command('createevent', async ({ ack, payload, context }) => {
   // Acknowledge the command request
   ack();
 
