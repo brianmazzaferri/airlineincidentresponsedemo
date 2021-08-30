@@ -436,7 +436,7 @@ app.shortcut('createevent', async ({ ack, payload, context }) => {
   }
 });
 
-app.view('createeventmodal', ({ ack, body, view, context }) => {
+app.view('createeventmodal', async ({ ack, body, view, context }) => {
   // Acknowledge the view_submission event
   ack();
 
