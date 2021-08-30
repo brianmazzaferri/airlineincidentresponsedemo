@@ -33,7 +33,7 @@ const app = new App({
 
 //LISTENERS GO HERE
 
-app.command('createevent', async ({ ack, payload, context }) => {
+app.shortcut('createevent', async ({ ack, payload, context }) => {
   // Acknowledge the command request
   ack();
 
