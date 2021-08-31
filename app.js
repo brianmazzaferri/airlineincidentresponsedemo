@@ -519,6 +519,12 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 					}
 				]
 		});
+		
+		const result2 = await app.client.pin.add({
+			token:context.botToken,
+			channel:result.channel.id,
+			timestamp:result3.ts
+		});
 
   	} 
 	catch (error) {
