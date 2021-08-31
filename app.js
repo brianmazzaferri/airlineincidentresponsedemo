@@ -543,6 +543,42 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 
 });
 
+app.action('viewliveweather', async ({ ack, body, context }) => {
+  // Acknowledge the button request
+  ack();
+
+  try {
+    const result = await app.client.views.open({
+      token: context.botToken,
+      trigger_id: body.trigger_id,
+      view: {
+	"title": {
+		"type": "plain_text",
+		"text": "Live Weather",
+		"emoji": true
+	},
+	"type": "modal",
+	"close": {
+		"type": "plain_text",
+		"text": "Close",
+		"emoji": true
+	},
+	"submit": {
+		"type": "plain_text",
+		"text": "Open in Thor",
+		"emoji": true
+	},
+	"callback_id": "createeventmodal",
+	"blocks": [
+			{
+				"type": "image",
+				"image_url": "https://fixthephoto.com/images/content/weather-radar-pro-weather-apps-for-windows-10-interface.png",
+				"alt_text": "inspiration"
+			}
+		]
+	}
+    });
+
 //BOILERPLATE BELOW HERE
 
 //look up any one document from a query string
