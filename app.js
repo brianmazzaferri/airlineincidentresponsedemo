@@ -578,6 +578,10 @@ app.action('viewliveweather', async ({ ack, body, context }) => {
 		]
 	}
     });
+  }
+	catch (error) {
+	console.error(error);
+	}
 
 //BOILERPLATE BELOW HERE
 
