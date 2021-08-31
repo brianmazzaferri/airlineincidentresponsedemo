@@ -521,7 +521,7 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 		const result6 = await app.client.chat.postMessage({
 			token:context.botToken,
 			channel:result.channel.id,
-			ts:result3.ts,
+			thread_ts:result3.ts,
 			text:"*Description:*\nThunderstorms have been moving slowly through the N90 airspace, blocking departure and arrival routes to the west and south of EWR, causing gate returns for re-routes as well as diversions due to arrival holding or lengthy weather deviations.\nEWR was under a modified 2nd tier ground stop from 1454 until 1601.3 arrivals diverted to IAD due to weather"
 		});		
 
