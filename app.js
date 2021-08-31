@@ -520,7 +520,7 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 				]
 		});
 		
-		const result4 = await app.client.pin.add({
+		const result4 = await app.client.pins.add({
 			token:context.botToken,
 			channel:result.channel.id,
 			timestamp:result3.ts
