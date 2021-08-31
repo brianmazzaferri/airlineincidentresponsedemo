@@ -455,6 +455,12 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 			users:"WTFQ276S3,W012T182X9B,W014Q671LBW"
 		});
 		
+		const result5 = await app.client.conversations.setTopic({
+			token:context.botToken,
+			channel:result.channel.id,
+			topic:"*Moderator:* <@W012T182X9B>  *Severity:* :blue_circle: Sev 2"
+		});
+		
 		const result3 = await app.client.chat.postMessage({
 			token:context.botToken,
 			channel:result.channel.id,
