@@ -455,7 +455,7 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 		const result2 = await app.client.conversations.invite({
 			token:context.botToken,
 			channel:result.channel.id,
-			users:"WTFQ276S3,W012T182X9B,W014Q671LBW"
+			users:"WTFQ276S3,W012T182X9B,W014Q671LBW, W011H7YMTJ6, W012Z79QQ5N,WTDERRE5A,WTFQ1FNS3,W0183CDTA2E,WTG4X0RHC,WTG4X9MN2,WTG4WTYFQ,WTDERPW1J,WTDUQJWUV"
 		});
 		
 		const result5 = await app.client.conversations.setTopic({
@@ -991,7 +991,7 @@ app.view('updateaudiencemodal2', async ({ ack, body, view, context }) => {
 		const result2 = await app.client.conversations.invite({
 			token:context.botToken,
 			channel:result.channel.id,
-			users:"W017N3Y6BF1"
+			users:"W017N3Y6BF1, WT3PAEL8Z,W0183GWHSPM,WT14YEUJW,WTDU3G24Q, WT2EBG3QB,WT2EC2TJ7,WT2EC5M4K"
 		});
 		
 //		const result6 = await app.client.chat.postMessage({
