@@ -584,6 +584,196 @@ app.action('viewliveweather', async ({ ack, body, context }) => {
 	}
 });
 
+app.action('modifyaudience', async ({ ack, body, context }) => {
+  // Acknowledge the button request
+  ack();
+
+  try {
+    const result = await app.client.views.open({
+      token: context.botToken,
+      trigger_id: body.trigger_id,
+      view: {
+	"title": {
+		"type": "plain_text",
+		"text": "Update Audience",
+		"emoji": true
+	},
+	"submit": {
+		"type": "plain_text",
+		"text": "Update Audience",
+		"emoji": true
+	},
+	"type": "modal",
+	"close": {
+		"type": "plain_text",
+		"text": "Cancel",
+		"emoji": true
+	},
+	"callback_id": "updateaudiencemodal",
+	"blocks": [
+		{
+			"type": "input",
+			"element": {
+				"type": "multi_static_select",
+				"placeholder": {
+					"type": "plain_text",
+					"text": "Select an item",
+					"emoji": true
+				},
+				"options": [
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Weather",
+							"emoji": true
+						},
+						"value": "value-0"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "ATC/Meteorology",
+							"emoji": true
+						},
+						"value": "value-1"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "NOC",
+							"emoji": true
+						},
+						"value": "value-2"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Airport Ops",
+							"emoji": true
+						},
+						"value": "value-2"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "FOS",
+							"emoji": true
+						},
+						"value": "value-2"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Dispatch",
+							"emoji": true
+						},
+						"value": "value-2"
+					}
+				],
+				"initial_options": [
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Weather",
+							"emoji": true
+						},
+						"value": "value-0"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "ATC/Meteorology",
+							"emoji": true
+						},
+						"value": "value-1"
+					}
+				],
+				"action_id": "static_select-action"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Audience:",
+				"emoji": true
+			},
+			"block_id": "audience"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "Suggested Audiences:"
+			},
+			"accessory": {
+				"type": "button",
+				"text": {
+					"type": "plain_text",
+					"text": "Add All",
+					"emoji": true
+				},
+				"value": "click_me_123",
+				"action_id": "button-action"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "FOS"
+			},
+			"accessory": {
+				"type": "button",
+				"text": {
+					"type": "plain_text",
+					"text": ":heavy_plus_sign:",
+					"emoji": true
+				},
+				"value": "click_me_123",
+				"action_id": "button-action"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "NOC"
+			},
+			"accessory": {
+				"type": "button",
+				"text": {
+					"type": "plain_text",
+					"text": ":heavy_plus_sign:",
+					"emoji": true
+				},
+				"value": "click_me_123",
+				"action_id": "button-action"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "Airport Ops"
+			},
+			"accessory": {
+				"type": "button",
+				"text": {
+					"type": "plain_text",
+					"text": ":heavy_plus_sign:",
+					"emoji": true
+				},
+				"value": "click_me_123",
+				"action_id": "button-action"
+			}
+		}
+	]
+}
+    });
+  }
+	catch (error) {
+	console.error(error);
+	}
+});
+
 //BOILERPLATE BELOW HERE
 
 //look up any one document from a query string
