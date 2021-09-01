@@ -708,6 +708,34 @@ app.action('escalateevent', async ({ ack, body, context }) => {
 	}
 });
 
+app.view('changeseveritymodal', async ({ ack, body, view, context }) => {
+  // Acknowledge the view_submission event
+  ack();
+
+	try {
+    		let result = await queryOne({"channel.name":"event-iah-thunderstorm-10-14-21"});
+		
+		const result5 = await app.client.conversations.setTopic({
+			token:context.botToken,
+			channel:result.channel.id,
+			topic:"*Moderator:* <@W012T182X9B>  *Severity:* :red_circle: Sev 1"
+		});	
+		
+		let message = ":red_circle: *An Event has Been Escalated to Sev 1* \n*Headline:* Thunderstorms have been moving slowly through the N90 airspace, blocking departure\n*Channel:* <#" + channelID + ">"
+		
+		const result7 = await app.client.chat.postMessage({
+			token:context.botToken,
+			channel:result.channel.id,
+			text: message
+		});
+
+  	} 
+	catch (error) {
+		console.error(error);
+	}
+
+});
+
 app.action('modifyaudience', async ({ ack, body, context }) => {
   // Acknowledge the button request
   ack();
