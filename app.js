@@ -39,12 +39,12 @@ app.shortcut('createevent', async ({ ack, payload, context }) => {
 
   try {
 	  
-//	db.remove({"channel.name":"event-iah-thunderstorm-10-14-21"}, { multi: true }, function(err) {
- //   		if (err) console.error("There's a problem with the database: ", err);
- //   		else console.log("channel ids removed from database);
-//  	});
+	await db.remove({"channel.name":"event-iah-thunderstorm-10-14-21"}, { multi: true }, function(err) {
+  		if (err) console.error("There's a problem with the database: ", err);
+   		else console.log("channel ids removed from database);
+  	});
 	  
-    const result = await app.client.views.open({
+      const result = await app.client.views.open({
       token: context.botToken,
       // Pass a valid trigger_id within 3 seconds of receiving it
       trigger_id: payload.trigger_id,
