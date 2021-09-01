@@ -39,7 +39,7 @@ app.shortcut('createevent', async ({ ack, payload, context }) => {
 
   try {
 	  
-	await db.remove({"channel.name":"event-iah-thunderstorm-10-14-21"}, { multi: true }, function(err) {
+	db.remove({'channel.name':'event-iah-thunderstorm-10-14-21'}, { multi: true }, function(err) {
   		if (err) console.error("There's a problem with the database: ", err);
    		else console.log("channel ids removed from database);
   	});
