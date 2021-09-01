@@ -461,6 +461,11 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 			topic:"*Moderator:* <@W012T182X9B>  *Severity:* :blue_circle: Sev 2"
 		});
 		
+		db.insert(result, (err, newDoc) => {
+		      if (err) console.error("There's a problem with the database ", err);
+		      else if (newDoc) console.log("result insert completed");
+		});
+		
 		const result3 = await app.client.chat.postMessage({
 			token:context.botToken,
 			channel:result.channel.id,
@@ -970,6 +975,45 @@ app.action('addFOS', async ({ ack, body, context }) => {
 	catch (error) {
 	console.error(error);
 	}
+});
+
+app.view('updateaudiencemodal2', async ({ ack, body, view, context }) => {
+  // Acknowledge the view_submission event
+  ack();
+
+	try {
+    		let result = await queryOne({"channel.name":"event-iah-thunderstorm-10-14-21"});
+		console.log(result);
+		
+		const result2 = await app.client.conversations.invite({
+			token:context.botToken,
+			channel:result.channel.id,
+			users:"W017N3Y6BF1"
+		});
+		
+//		const result6 = await app.client.chat.postMessage({
+//			token:context.botToken,
+//			channel:result.channel.id,
+//			thread_ts:result3.ts,
+//			text:"*Description:*\nThunderstorms have been moving slowly through the N90 airspace, blocking departure and arrival routes to the west and south of EWR, causing gate returns for re-routes as well as diversions due to arrival holding or lengthy weather deviations.\nEWR was under a modified 2nd tier ground stop from 1454 until 1601.3 arrivals diverted to IAD due to weather"
+//		});		
+
+  	} 
+	catch (error) {
+		console.error(error);
+	}
+	
+	
+/*  // Do whatever you want with the input data - here we're saving it to a DB then sending the user a verifcation of their submission
+
+  // Assume there's an input block with `test_input` as the block_id and `dreamy_input` as the action_id
+  const val = view['state']['values']['test_input']['dreamy_input'];
+  const user = body['user']['id'];
+  
+  // You'll probably want to store these values somewhere
+  console.log(val);
+  console.log(user); */
+
 });
 
 //BOILERPLATE BELOW HERE
