@@ -721,11 +721,11 @@ app.view('changeseveritymodal', async ({ ack, body, view, context }) => {
 			topic:"*Moderator:* <@W012T182X9B>  *Severity:* :red_circle: Sev 1"
 		});	
 		
-		let message = ":red_circle: *An Event has Been Escalated to Sev 1* \n*Headline:* Thunderstorms have been moving slowly through the N90 airspace, blocking departure\n*Channel:* <#" + channelID + ">"
+		let message = ":red_circle: *An Event has Been Escalated to Sev 1* \n*Headline:* Thunderstorms have been moving slowly through the N90 airspace, blocking departure\n*Channel:* <#" + result.channel.id + ">"
 		
 		const result7 = await app.client.chat.postMessage({
 			token:context.botToken,
-			channel:result.channel.id,
+			channel:"C02D4MEFN2E",
 			text: message
 		});
 
