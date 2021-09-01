@@ -547,7 +547,7 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 		
 		const result8 = await app.client.chat.postMessage({
 			token:context.botToken,
-			channel:"C02B9VBSFHP",
+			channel:"C02AXBAGSDQ",
 			text: message
 		});
 
