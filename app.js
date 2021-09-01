@@ -688,14 +688,14 @@ app.action('modifyaudience', async ({ ack, body, context }) => {
 						"value": "value-1"
 					}
 				],
-				"action_id": "static_select-action"
+				"action_id": "static_select-actionold"
 			},
 			"label": {
 				"type": "plain_text",
 				"text": "Audience:",
 				"emoji": true
 			},
-			"block_id": "audience"
+			"block_id": "audienceold"
 		},
 		{
 			"type": "section",
@@ -799,7 +799,7 @@ app.action('addFOS', async ({ ack, body, context }) => {
 		"text": "Cancel",
 		"emoji": true
 	},
-	"callback_id": "updateaudiencemodal",
+	"callback_id": "updateaudiencemodal2",
 	"blocks": [
 		{
 			"type": "input",
