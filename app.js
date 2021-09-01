@@ -516,6 +516,16 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 								},
 								"value": "click_me_123",
 								"action_id": "openunitedview"
+							},
+							{
+								"type": "button",
+								"text": {
+									"type": "plain_text",
+									"text": ":red_circle: Change Severity",
+									"emoji": true
+								},
+								"value": "click_me_123",
+								"action_id": "escalateevent"
 							}
 						]
 					}
