@@ -620,6 +620,94 @@ app.action('viewliveweather', async ({ ack, body, context }) => {
 	}
 });
 
+app.action('escalateevent', async ({ ack, body, context }) => {
+  // Acknowledge the button request
+  ack();
+
+  try {
+    const result = await app.client.views.open({
+      token: context.botToken,
+      trigger_id: body.trigger_id,
+      view: {
+	"title": {
+		"type": "plain_text",
+		"text": "Change Severity",
+		"emoji": true
+	},
+	"submit": {
+		"type": "plain_text",
+		"text": "Change Severity",
+		"emoji": true
+	},
+	"type": "modal",
+	"close": {
+		"type": "plain_text",
+		"text": "Cancel",
+		"emoji": true
+	},
+	"callback_id": "changeseveritymodal",
+	"blocks": [
+		{
+			"type": "input",
+			"element": {
+				"type": "static_select",
+				"placeholder": {
+					"type": "plain_text",
+					"text": "Select an item",
+					"emoji": true
+				},
+				"options": [
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Sev 1 :red_circle:",
+							"emoji": true
+						},
+						"value": "value-0"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Sev 2 :blue_circle:",
+							"emoji": true
+						},
+						"value": "value-1"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Sev 3 :white_circle:",
+							"emoji": true
+						},
+						"value": "value-2"
+					}
+				],
+				"initial_option": {
+					"text": {
+						"type": "plain_text",
+						"text": "Sev 2 :blue_circle:",
+						"emoji": true
+					},
+					"value": "value-1"
+				},
+				"action_id": "static_select-action"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Severity:",
+				"emoji": true
+			},
+			"block_id": "severity"
+		}
+	]
+}
+    });
+  }
+	catch (error) {
+	console.error(error);
+	}
+});
+
 app.action('modifyaudience', async ({ ack, body, context }) => {
   // Acknowledge the button request
   ack();
