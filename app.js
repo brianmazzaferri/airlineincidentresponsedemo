@@ -39,10 +39,7 @@ app.shortcut('createevent', async ({ ack, payload, context }) => {
 
   try {
 	  
-	db.remove({'channel.name':'event-iah-thunderstorm-10-14-21'}, { multi: true }, function(err) {
-  		if (err) console.error("There's a problem with the database: ", err);
-   		else console.log("channel ids removed from database);
-  	});
+	const deleteIt = await deleteRecords({"channel.name":"event-iah-thunderstorm-10-14-21"});
 	  
       const result = await app.client.views.open({
       token: context.botToken,
@@ -1030,6 +1027,17 @@ function queryOne(query) {
     db.findOne(query, (err, docs) => {
       if (err) console.log("There's a problem with the database: ", err);
       else if (docs) console.log(query + " queryOne run successfully.");
+      resolve(docs);
+    });
+  });
+}
+	
+//delete from the database using a query
+function deleteRecords(query) {
+  return new Promise((resolve, reject) => {
+    db.remove(query, {multi:true}, (err, docs) => {
+      if (err) console.log("There's a problem with the database: ", err);
+      else if (docs) console.log(query + " deleteRecords run successfully.");
       resolve(docs);
     });
   });
