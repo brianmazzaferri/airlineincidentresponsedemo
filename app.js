@@ -543,7 +543,7 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 			text: message
 		});
 		
-		let message = ":iah: *A New IAH Event* has been created\n*Headline:* Thunderstorms have been moving slowly through the N90 airspace, blocking departure\n*Severity:* Sev 2 :blue_circle:\n*Channel:* <#" + channelID + ">"
+		message = ":iah: *A New IAH Event* has been created\n*Headline:* Thunderstorms have been moving slowly through the N90 airspace, blocking departure\n*Severity:* Sev 2 :blue_circle:\n*Channel:* <#" + channelID + ">"
 		
 		const result8 = await app.client.chat.postMessage({
 			token:context.botToken,
