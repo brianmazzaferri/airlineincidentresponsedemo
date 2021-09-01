@@ -883,7 +883,7 @@ app.action('addFOS', async ({ ack, body, context }) => {
 							"text": "FOS",
 							"emoji": true
 						},
-						"value": "value-1"
+						"value": "value-2"
 					}
 				],
 				"action_id": "static_select-action"
