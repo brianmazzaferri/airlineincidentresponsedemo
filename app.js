@@ -535,13 +535,21 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 			text:"*Description:*\nThunderstorms have been moving slowly through the N90 airspace, blocking departure and arrival routes to the west and south of EWR, causing gate returns for re-routes as well as diversions due to arrival holding or lengthy weather deviations.\nEWR was under a modified 2nd tier ground stop from 1454 until 1601.3 arrivals diverted to IAD due to weather"
 		});	
 		
-		const message = ":thunder_cloud_and_rain: *A New Weather Event* has been created\n*Headline:* Thunderstorms have been moving slowly through the N90 airspace, blocking departure\n*Severity:* Sev 2 :blue_circle:\n*Channel:* <#" + channelID + ">"
+		let message = ":thunder_cloud_and_rain: *A New Weather Event* has been created\n*Headline:* Thunderstorms have been moving slowly through the N90 airspace, blocking departure\n*Severity:* Sev 2 :blue_circle:\n*Channel:* <#" + channelID + ">"
 		
 		const result7 = await app.client.chat.postMessage({
 			token:context.botToken,
 			channel:"C02B9VBSFHP",
 			text: message
-		});	
+		});
+		
+		let message = ":iah: *A New IAH Event* has been created\n*Headline:* Thunderstorms have been moving slowly through the N90 airspace, blocking departure\n*Severity:* Sev 2 :blue_circle:\n*Channel:* <#" + channelID + ">"
+		
+		const result8 = await app.client.chat.postMessage({
+			token:context.botToken,
+			channel:"C02B9VBSFHP",
+			text: message
+		});
 
   	} 
 	catch (error) {
