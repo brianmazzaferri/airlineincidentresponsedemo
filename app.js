@@ -841,7 +841,7 @@ app.action('addFOS', async ({ ack, body, context }) => {
 							"text": "Airport Ops",
 							"emoji": true
 						},
-						"value": "value-2"
+						"value": "value-3"
 					},
 					{
 						"text": {
@@ -849,7 +849,7 @@ app.action('addFOS', async ({ ack, body, context }) => {
 							"text": "FOS",
 							"emoji": true
 						},
-						"value": "value-2"
+						"value": "value-4"
 					},
 					{
 						"text": {
@@ -857,7 +857,7 @@ app.action('addFOS', async ({ ack, body, context }) => {
 							"text": "Dispatch",
 							"emoji": true
 						},
-						"value": "value-2"
+						"value": "value-5"
 					}
 				],
 				"initial_options": [
@@ -883,7 +883,7 @@ app.action('addFOS', async ({ ack, body, context }) => {
 							"text": "FOS",
 							"emoji": true
 						},
-						"value": "value-2"
+						"value": "value-4"
 					}
 				],
 				"action_id": "static_select-action"
