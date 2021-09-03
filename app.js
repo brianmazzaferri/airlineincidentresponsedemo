@@ -989,14 +989,6 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 			text:"*Description:*\nThunderstorms have been moving slowly through the N90 airspace, blocking departure and arrival routes to the west and south of EWR, causing gate returns for re-routes as well as diversions due to arrival holding or lengthy weather deviations.\nEWR was under a modified 2nd tier ground stop from 1454 until 1601.3 arrivals diverted to IAD due to weather"
 		});	
 		
-		let message = ":thunder_cloud_and_rain: *A New Weather Event* has been created\n*Headline:* Thunderstorms have been moving slowly through the N90 airspace, blocking departure\n*Severity:* Sev 2 :blue_circle:\n*Channel:* <#" + channelID + ">"
-		
-		const result7 = await app.client.chat.postMessage({
-			token:context.botToken,
-			channel:"C02B9VBSFHP",
-			text: message
-		});
-		
 		let blocks = [
 		{
 			"type": "header",
@@ -1125,7 +1117,7 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 		
 		const result10 = await app.client.chat.postMessage({
 			token:context.botToken,
-			channel:"C02AXBAGSDQ",
+			channel:"C02B9VBSFHP",
 			blocks: blocks
 		});
 		
@@ -1138,10 +1130,18 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 		});
 		
 		const result9 = await app.client.admin.conversations.setConversationPrefs({
-		token:process.env.USER_TOKEN,
-		channel_id:channelID,
-		prefs: "{'who_can_post':'type:admin','can_thread':'type:ra'}"
-		});		
+			token:process.env.USER_TOKEN,
+			channel_id:channelID,
+			prefs: "{'who_can_post':'type:admin','can_thread':'type:ra'}"
+		});	
+		
+		let message = ":thunder_cloud_and_rain: *A New Weather Event* has been created\n*Headline:* Thunderstorms have been moving slowly through the N90 airspace, blocking departure\n*Severity:* Sev 2 :blue_circle:\n*Channel:* <#" + channelID + ">"
+		
+		const result7 = await app.client.chat.postMessage({
+			token:context.botToken,
+			channel:"C02B9VBSFHP",
+			text: message
+		});
 
   	} 
 	catch (error) {
