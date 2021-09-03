@@ -1006,11 +1006,16 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 		});
 		
 	      setTimeout(async () => {
-			const result9 = await app.client.admin.conversations.setConversationPrefs({
-			token:process.env.USER_TOKEN,
-			channel_id:result.channel.id,
-			prefs: "{'who_can_post':'type:admin','can_thread':'type:user'}"
-			});
+		      	try{
+				const result9 = await app.client.admin.conversations.setConversationPrefs({
+				token:process.env.USER_TOKEN,
+				channel_id:result.channel.id,
+				prefs: "{'who_can_post':'type:admin','can_thread':'type:user'}"
+				});
+			}
+		      	catch (error) {
+				console.error(error);
+			}
 	      }, 1000);
 
   	} 
