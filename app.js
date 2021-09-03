@@ -997,7 +997,7 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 			text: message
 		});
 		
-		let blocks = "[
+		let blocks = [
 		{
 			"type": "header",
 			"text": {
@@ -1121,7 +1121,7 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 			"image_url": "https://s.w-x.co/staticmaps/WEB_Current_Weather_Map_1280x720.jpg?v=ap&w=1280&h=720&api=7db9fe61-7414-47b5-9871-e17d87b8b6a0",
 			"alt_text": "inspiration"
 		}
-	]"
+	]
 		
 		const result10 = await app.client.chat.postMessage({
 			token:context.botToken,
