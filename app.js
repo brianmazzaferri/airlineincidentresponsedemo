@@ -1227,6 +1227,102 @@ app.action('viewliveweather', async ({ ack, body, context }) => {
 	}
 });
 
+app.action('viewactiveevents', async ({ ack, body, context }) => {
+  // Acknowledge the button request
+  ack();
+
+  try {
+	    const result = await app.client.views.open({
+	      token: context.botToken,
+	      trigger_id: body.trigger_id,
+	      view: {
+		"title": {
+			"type": "plain_text",
+			"text": "Active Events",
+			"emoji": true
+		},
+		"type": "modal",
+		"close": {
+			"type": "plain_text",
+			"text": "Close",
+			"emoji": true
+		},
+		"submit": {
+			"type": "plain_text",
+			"text": "Open in UnitedView",
+			"emoji": true
+		},
+		"callback_id": "createeventmodal",
+		"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": ":firefighter: |   *ACTIVE WEATHER EVENTS*  | :firefighter:"
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "`Sev 1` :red_circle:"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "IAH Thunderstorms: <https://www.slack.com|#event-iah-thunderstorm-10-14-21>"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "`Sev 2` :blue_circle:"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "ORD Thunderstorms: <https://www.slack.com|#event-ord-thunderstorms>\nTropical Storm Henri: <https://www.slack.com|#event-tropical-storm-henri>"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "`Sev 3` :white_circle:"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "Hail Over Hawaii: <https://www.slack.com|#event-hawaiian-hailstorm>"
+			}
+		}
+	]
+		}
+	    });
+	  
+//	      	let result2 = await queryOne({"channel.name":"event-iah-thunderstorm-10-14-21"});
+//	  
+//		const result9 = await app.client.admin.conversations.setConversationPrefs({
+//		token:process.env.USER_TOKEN,
+//		channel_id:result2.channel.id,
+//		prefs: "{'who_can_post':'type:admin'}"
+//		});
+  }
+	catch (error) {
+	console.error(error);
+	}
+});
+
 app.action('escalateevent', async ({ ack, body, context }) => {
   // Acknowledge the button request
   ack();
