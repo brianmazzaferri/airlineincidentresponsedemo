@@ -1003,6 +1003,14 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 			channel:"C02AXBAGSDQ",
 			text: message
 		});
+		
+		console.log(context);
+		
+		const result9 = await app.client.admin.conversations.setConversationPrefs({
+			token:context.botToken,
+			channel:result.channel.id,
+			prefs: "{'who_can_post':'type:admin'}"
+		});
 
   	} 
 	catch (error) {
