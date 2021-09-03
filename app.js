@@ -997,6 +997,138 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 			text: message
 		});
 		
+		let blocks = '[
+		{
+			"type": "header",
+			"text": {
+				"type": "plain_text",
+				"text": ":wind_blowing_face:  Daily Weather Event Briefing  :wind_blowing_face:"
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": " :chart_with_upwards_trend: | *SUMMARY METRICS* | :chart_with_downwards_trend:"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "*21* New Weather Events in the past 24 hours\n:large_green_circle: *below* average (31 per day)\n"
+			},
+			"accessory": {
+				"type": "button",
+				"text": {
+					"type": "plain_text",
+					"text": "View Dashboard",
+					"emoji": true
+				}
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "*Events by Severity Level*\n:red_circle: *Sev 1:* 0\n:blue_circle: *Sev 2:* 6\n:white_circle: *Sev 3:* 15"
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": ":firefighter: |   *ACTIVE EVENTS*  | :firefighter:"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "`Sev 1` :red_circle:"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "no active events :+1:"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "`Sev 2` :blue_circle:"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "ORD Thunderstorms: <https://www.slack.com|#event-ord-thunderstorms>\nTropical Storm Henri: <https://www.slack.com|#event-tropical-storm-henri>\nCalifornia Wildfires: <https://www.slack.com|#event-california-wildfires>"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "`Sev 3` :white_circle:"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "Hail Over Hawaii: <https://www.slack.com|#event-hawaiian-hailstorm>\nGreased Lightning: <https://www.slack.com|#event-greased-lightning>"
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": ":white_check_mark: |   *RESOLVED EVENTS (Past 24 hrs)*  | :white_check_mark: "
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "Scranton Stormclouds: <https://www.slack.com|#event-scranton-stormclouds>\nAUS Freezing Rain: <https://www.slack.com|#event-aus-freezing-rain>\nMeteor Shower: <https://www.slack.com|#event-meteor-shower>\nSRQ Tornado: <https://www.slack.com|#event-srq-tornado>"
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": ":sun_small_cloud: |   *CURRENT CONDITIONS*  | :sun_small_cloud: "
+			}
+		},
+		{
+			"type": "image",
+			"image_url": "https://s.w-x.co/staticmaps/WEB_Current_Weather_Map_1280x720.jpg?v=ap&w=1280&h=720&api=7db9fe61-7414-47b5-9871-e17d87b8b6a0",
+			"alt_text": "inspiration"
+		}
+	]'
+		
+		const result10 = await app.client.chat.postMessage({
+			token:context.botToken,
+			channel:"C02AXBAGSDQ",
+			blocks: blocks
+		});
+		
 		message = ":iah: *A New IAH Event* has been created\n*Headline:* Thunderstorms have been moving slowly through the N90 airspace, blocking departure\n*Severity:* Sev 2 :blue_circle:\n*Channel:* <#" + channelID + ">"
 		
 		const result8 = await app.client.chat.postMessage({
@@ -1009,7 +1141,7 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 		token:process.env.USER_TOKEN,
 		channel_id:channelID,
 		prefs: "{'who_can_post':'type:admin','can_thread':'type:ra'}"
-		});
+		});		
 
   	} 
 	catch (error) {
