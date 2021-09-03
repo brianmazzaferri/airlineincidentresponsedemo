@@ -1042,36 +1042,44 @@ app.action('viewliveweather', async ({ ack, body, context }) => {
   ack();
 
   try {
-    const result = await app.client.views.open({
-      token: context.botToken,
-      trigger_id: body.trigger_id,
-      view: {
-	"title": {
-		"type": "plain_text",
-		"text": "Live Weather",
-		"emoji": true
-	},
-	"type": "modal",
-	"close": {
-		"type": "plain_text",
-		"text": "Close",
-		"emoji": true
-	},
-	"submit": {
-		"type": "plain_text",
-		"text": "Open in Thor",
-		"emoji": true
-	},
-	"callback_id": "createeventmodal",
-	"blocks": [
-			{
-				"type": "image",
-				"image_url": "https://fixthephoto.com/images/content/weather-radar-pro-weather-apps-for-windows-10-interface.png",
-				"alt_text": "inspiration"
-			}
-		]
-	}
-    });
+	    const result = await app.client.views.open({
+	      token: context.botToken,
+	      trigger_id: body.trigger_id,
+	      view: {
+		"title": {
+			"type": "plain_text",
+			"text": "Live Weather",
+			"emoji": true
+		},
+		"type": "modal",
+		"close": {
+			"type": "plain_text",
+			"text": "Close",
+			"emoji": true
+		},
+		"submit": {
+			"type": "plain_text",
+			"text": "Open in Thor",
+			"emoji": true
+		},
+		"callback_id": "createeventmodal",
+		"blocks": [
+				{
+					"type": "image",
+					"image_url": "https://fixthephoto.com/images/content/weather-radar-pro-weather-apps-for-windows-10-interface.png",
+					"alt_text": "inspiration"
+				}
+			]
+		}
+	    });
+	  
+	      	let result2 = await queryOne({"channel.name":"event-iah-thunderstorm-10-14-21"});
+	  
+		const result9 = await app.client.admin.conversations.setConversationPrefs({
+		token:process.env.USER_TOKEN,
+		channel_id:result2.channel.id,
+		prefs: "{'who_can_post':'type:admin','can_thread':'type:user'}"
+		});
   }
 	catch (error) {
 	console.error(error);
