@@ -1016,7 +1016,7 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 		      	catch (error) {
 				console.error(error);
 			}
-	      }, 5000);
+	      }, 10000);
 
   	} 
 	catch (error) {
@@ -1078,7 +1078,7 @@ app.action('viewliveweather', async ({ ack, body, context }) => {
 		const result9 = await app.client.admin.conversations.setConversationPrefs({
 		token:process.env.USER_TOKEN,
 		channel_id:result2.channel.id,
-		prefs: "{'who_can_post':'type:admin','can_thread':'type:user'}"
+		prefs: "{'who_can_post':'type:admin'}"
 		});
   }
 	catch (error) {
