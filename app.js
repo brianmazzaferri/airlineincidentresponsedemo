@@ -1121,7 +1121,7 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 			blocks: blocks
 		});
 		
-		message = ":iah: *A New IAH Event* has been created\n*Headline:* Thunderstorms have been moving slowly through the N90 airspace, blocking departure\n*Severity:* Sev 2 :blue_circle:\n*Channel:* <#" + channelID + ">"
+		let message = ":iah: *A New IAH Event* has been created\n*Headline:* Thunderstorms have been moving slowly through the N90 airspace, blocking departure\n*Severity:* Sev 2 :blue_circle:\n*Channel:* <#" + channelID + ">"
 		
 		const result8 = await app.client.chat.postMessage({
 			token:context.botToken,
@@ -1135,7 +1135,7 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 			prefs: "{'who_can_post':'type:admin','can_thread':'type:ra'}"
 		});	
 		
-		let message = ":thunder_cloud_and_rain: *A New Weather Event* has been created\n*Headline:* Thunderstorms have been moving slowly through the N90 airspace, blocking departure\n*Severity:* Sev 2 :blue_circle:\n*Channel:* <#" + channelID + ">"
+		message = ":thunder_cloud_and_rain: *A New Weather Event* has been created\n*Headline:* Thunderstorms have been moving slowly through the N90 airspace, blocking departure\n*Severity:* Sev 2 :blue_circle:\n*Channel:* <#" + channelID + ">"
 		
 		const result7 = await app.client.chat.postMessage({
 			token:context.botToken,
