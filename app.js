@@ -1010,12 +1010,13 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 		const result9 = await app.client.admin.conversations.setConversationPrefs({
 			token:process.env.USER_TOKEN,
 			channel:result.channel.id,
-			prefs: "{'who_can_post':'type:admin,user:WTFQ276S3','can_thread':'type:user'}"
+			prefs: "{'who_can_post':'type:admin','can_thread':'type:user'}"
 		});
 
   	} 
 	catch (error) {
 		console.error(error);
+		console.log(error.data);
 	}
 	
 	
