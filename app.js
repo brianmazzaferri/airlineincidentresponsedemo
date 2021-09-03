@@ -890,7 +890,7 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
  	
 		const result = await app.client.conversations.create({
 			token:context.botToken,
-			name:"event-iah-thunderstorm-10-14-21"
+			name:"event-iah-thunderstorm-10-14-21",
 			team_id:"T02B3EN7PHA"
 		});
 		
