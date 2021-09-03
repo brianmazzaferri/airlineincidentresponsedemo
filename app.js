@@ -1005,18 +1005,11 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 			text: message
 		});
 		
-	      setTimeout(async () => {
-		      	try{
-				const result9 = await app.client.admin.conversations.setConversationPrefs({
-				token:process.env.USER_TOKEN,
-				channel_id:channelID,
-				prefs: "{'who_can_post':'type:admin','can_thread':'type:user'}"
-				});
-			}
-		      	catch (error) {
-				console.error(error);
-			}
-	      }, 10000);
+		const result9 = await app.client.admin.conversations.setConversationPrefs({
+		token:process.env.USER_TOKEN,
+		channel_id:channelID,
+		prefs: "{'who_can_post':'type:admin','can_thread':'true'}"
+		});
 
   	} 
 	catch (error) {
@@ -1073,13 +1066,13 @@ app.action('viewliveweather', async ({ ack, body, context }) => {
 		}
 	    });
 	  
-	      	let result2 = await queryOne({"channel.name":"event-iah-thunderstorm-10-14-21"});
-	  
-		const result9 = await app.client.admin.conversations.setConversationPrefs({
-		token:process.env.USER_TOKEN,
-		channel_id:result2.channel.id,
-		prefs: "{'who_can_post':'type:admin'}"
-		});
+//	      	let result2 = await queryOne({"channel.name":"event-iah-thunderstorm-10-14-21"});
+//	  
+//		const result9 = await app.client.admin.conversations.setConversationPrefs({
+//		token:process.env.USER_TOKEN,
+//		channel_id:result2.channel.id,
+//		prefs: "{'who_can_post':'type:admin'}"
+//		});
   }
 	catch (error) {
 	console.error(error);
