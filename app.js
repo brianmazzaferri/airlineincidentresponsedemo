@@ -1037,6 +1037,15 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 			"text": {
 				"type": "mrkdwn",
 				"text": ":firefighter: |   *ACTIVE EVENTS*  | :firefighter:"
+			},
+			"accessory": {
+				"type": "button",
+				"text": {
+					"type": "plain_text",
+					"text": "View Current Active Events",
+					"emoji": true
+				},
+				"action_id": "viewactiveevents"
 			}
 		},
 		{
