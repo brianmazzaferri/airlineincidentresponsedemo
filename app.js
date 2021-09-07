@@ -1162,15 +1162,15 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 		const result11 = await app.client.chat.postMessage({
 			token:context.botToken,
 			channel:channelID,
-			text: ":alphabet-white-a::alphabet-white-t::alphabet-white-c::thread:
+			text: ":alphabet-white-a::alphabet-white-t::alphabet-white-c::thread:"
 		});
 		
-		message = "<!subteam^S02DTQD49B6> please use this thread for discussion about <#" & channelID & ">"
+		message = "<!subteam^S02DTQD49B6> please use this thread for discussion about <#" + channelID + ">"
 		
 		const result12 = await app.client.chat.postMessage({
 			token:context.botToken,
 			channel:channelID,
-			thread_ts:result11.ts
+			thread_ts:result11.ts,
 			text: message
 		});
 
