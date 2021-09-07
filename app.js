@@ -1919,6 +1919,80 @@ app.view('updateaudiencemodal2', async ({ ack, body, view, context }) => {
 
 });
 
+app.action('closeevent', async ({ ack, body, context }) => {
+  // Acknowledge the button request
+  ack();
+
+  try {
+    const result = await app.client.views.open({
+      token: context.botToken,
+      trigger_id: body.trigger_id,
+      view: {
+	"type": "modal",
+	"submit": {
+		"type": "plain_text",
+		"text": "Confirm",
+		"emoji": true
+	},
+	"close": {
+		"type": "plain_text",
+		"text": "Cancel",
+		"emoji": true
+	},
+	"title": {
+		"type": "plain_text",
+		"text": "Close Event",
+		"emoji": true
+	},
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "*Closing Event:*\n'Thunderstorms have been moving slowly through the N90 airspace' \n\n*Archiving channel:*\n <fakelink.toChannel.com|#event-iah-thunderstorm-10-14-21>"
+			}
+		},
+		{
+			"type": "actions",
+			"elements": [
+				{
+					"type": "checkboxes",
+					"options": [
+						{
+							"text": {
+								"type": "plain_text",
+								"text": "Postmortem Needed"
+							},
+							"value": "tasks",
+							"description": {
+								"type": "plain_text",
+								"text": "Will add a postmortem event to calendars"
+							}
+						},
+						{
+							"text": {
+								"type": "plain_text",
+								"text": "Resolution Alert"
+							},
+							"value": "comments",
+							"description": {
+								"type": "plain_text",
+								"text": "Will notify all 'tag' channels of event resolution"
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}
+    });
+  }
+	catch (error) {
+	console.error(error);
+	}
+});
+
 //BOILERPLATE BELOW HERE
 
 //look up any one document from a query string
