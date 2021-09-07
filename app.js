@@ -1859,6 +1859,21 @@ app.view('updateaudiencemodal2', async ({ ack, body, view, context }) => {
 			users:"W017N3Y6BF1, WT3PAEL8Z,W0183GWHSPM,WT14YEUJW,WTDU3G24Q, WT2EBG3QB,WT2EC2TJ7,WT2EC5M4K"
 		});
 		
+		const result11 = await app.client.chat.postMessage({
+			token:context.botToken,
+			channel:result.channel.id,
+			text: ":alphabet-white-f::alphabet-white-o::alphabet-white-s::thread:"
+		});
+		
+		message = "<!subteam^S02DMMJLGFL> please use this thread for discussion about <#" + result.channel.id + ">"
+		
+		const result12 = await app.client.chat.postMessage({
+			token:context.botToken,
+			channel:channelID,
+			thread_ts:result11.ts,
+			text: message
+		});
+		
 //		const result6 = await app.client.chat.postMessage({
 //			token:context.botToken,
 //			channel:result.channel.id,
