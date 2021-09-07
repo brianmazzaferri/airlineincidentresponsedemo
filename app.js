@@ -1869,7 +1869,7 @@ app.view('updateaudiencemodal2', async ({ ack, body, view, context }) => {
 		
 		const result12 = await app.client.chat.postMessage({
 			token:context.botToken,
-			channel:channelID,
+			channel:result.channel.id,
 			thread_ts:result11.ts,
 			text: message
 		});
