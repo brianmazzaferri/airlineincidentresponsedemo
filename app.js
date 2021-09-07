@@ -1929,6 +1929,7 @@ app.action('closeeevent', async ({ ack, body, context }) => {
       trigger_id: body.trigger_id,
       view: {
 	"type": "modal",
+	"callback_id":"closeeventsubmit",
 	"submit": {
 		"type": "plain_text",
 		"text": "Confirm",
@@ -1990,6 +1991,24 @@ app.action('closeeevent', async ({ ack, body, context }) => {
   }
 	catch (error) {
 	console.error(error);
+	}
+});
+
+app.view('closeeventsubmit', async ({ ack, body, view, context }) => {
+  // Acknowledge the view_submission event
+  ack();
+
+	try {
+    		let result = await queryOne({"channel.name":"event-iah-thunderstorm-10-14-21"});
+		console.log(result);
+		
+		const result2 = await app.client.conversations.archive({
+			token:context.botToken,
+			channel:result.channel.id
+		});
+  	} 
+	catch (error) {
+		console.error(error);
 	}
 });
 
