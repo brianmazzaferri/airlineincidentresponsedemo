@@ -945,7 +945,7 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 								"type": "button",
 								"text": {
 									"type": "plain_text",
-									"text": ":mega: Modify Audience",
+									"text": ":busts_in_silhouette: Modify Audience",
 									"emoji": true
 								},
 								"value": "click_me_123",
@@ -965,21 +965,41 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 								"type": "button",
 								"text": {
 									"type": "plain_text",
-									"text": ":united: Open UnitedView",
-									"emoji": true
-								},
-								"value": "click_me_123",
-								"action_id": "openunitedview"
-							},
-							{
-								"type": "button",
-								"text": {
-									"type": "plain_text",
 									"text": ":red_circle: Change Severity",
 									"emoji": true
 								},
 								"value": "click_me_123",
 								"action_id": "escalateevent"
+							},
+							{
+								"type": "button",
+								"text": {
+									"type": "plain_text",
+									"text": ":mega: Event Update",
+									"emoji": true
+								},
+								"value": "click_me_123",
+								"action_id": "updateevent"
+							},
+							{
+								"type": "button",
+								"text": {
+									"type": "plain_text",
+									"text": ":white_check_mark: Close Event",
+									"emoji": true
+								},
+								"value": "click_me_123",
+								"action_id": "closeeevent"
+							},
+							{
+								"type": "button",
+								"text": {
+									"type": "plain_text",
+									"text": ":united: Open UnitedView",
+									"emoji": true
+								},
+								"value": "click_me_123",
+								"action_id": "openunitedview"
 							}
 						]
 					}
