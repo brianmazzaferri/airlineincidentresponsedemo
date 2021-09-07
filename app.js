@@ -1919,7 +1919,7 @@ app.view('updateaudiencemodal2', async ({ ack, body, view, context }) => {
 
 });
 
-app.action('closeevent', async ({ ack, body, context }) => {
+app.action('closeeevent', async ({ ack, body, context }) => {
   // Acknowledge the button request
   ack();
 
