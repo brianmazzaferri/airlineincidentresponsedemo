@@ -917,7 +917,7 @@ app.view('createeventmodal', async ({ ack, body, view, context }) => {
 		const result5 = await app.client.conversations.setTopic({
 			token:context.botToken,
 			channel:result.channel.id,
-			topic:"*Moderator:* <@W012T182X9B>  *Severity:* :blue_circle: Sev 2"
+			topic:"*Moderator:* <@WTFQ276S3>  *Severity:* :blue_circle: Sev 2"
 		});
 		
 		db.insert(result, (err, newDoc) => {
