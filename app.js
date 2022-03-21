@@ -64,17 +64,17 @@ app.shortcut('createevent', async ({ ack, payload, context }) => {
 
   try {
 	  
-    	let result11 = await queryOne({"channel.name":"event-iah-thunderstorm-10-14-21"});
+ /*   	let result11 = await queryOne({"channel.name":"event-iah-thunderstorm-10-14-21"});
 	  
-/*	 if (result11){
+	 if (result11){
 		const result12 = await app.client.admin.conversations.delete({
 	  		token:process.env.USER_TOKEN,
 			channel_id:result11.channel.id
 	  	});
-	 */
+	 
 	  
 	  	const deleteIt = await deleteRecords({"channel.name":"event-iah-thunderstorm-10-14-21"});
-	 }
+	 }*/
 	  
       const result = await app.client.views.open({
       token: context.botToken,
